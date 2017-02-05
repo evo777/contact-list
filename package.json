@@ -1,0 +1,32 @@
+{
+  "name": "contact-list",
+  "version": "1.0.0",
+  "description": "An application that holds information",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evo777/contact-list.git"
+  },
+  "author": "Emmanuel Vo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evo777/contact-list/issues"
+  },
+  "homepage": "https://github.com/evo777/contact-list#readme",
+  "devDependencies": {
+    "browserify": "*",
+    "flux": "*",
+    "gulp": "*",
+    "reactify": "*",
+    "vinyl-source-stream": "*",
+    "object-assign": "*"
+  },
+  "dependencies": {
+    "firebase": "^2.4.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
+  }
+}
