@@ -7,6 +7,8 @@ var CHANGE_EVENT = 'change';
 
 var _contacts = [];
 
+//Working with a store is like working with an array
+
 var AppStore = assign({}, EventEmitter.prototype, {
   getContacts: function() {
     return _contacts;
@@ -15,6 +17,21 @@ var AppStore = assign({}, EventEmitter.prototype, {
   //When submitting the form, the contact gets pushed into the array
   saveContact: function(contact){
     _contacts.push(contact)
+  },
+  //Helps get all the contacts from firebase and store them in the array
+  setContacts: function(contacts){
+    _contacts = contacts;
+  },
+
+  //Change events functions
+  emitChange: function(){
+    this.emit(CHANGE_EVENT);
+  },
+  addChangeListener: function(callback){
+    this.on('change', callback);
+  },
+  removeChangeListener: function(callback){
+    this.removeListener('change', callback);
   }
 });
 
@@ -32,6 +49,16 @@ AppDispatcher.register(function(payload){
       // Save to API
       //Will look inside the AppAPI.js for a function called saveContact
       AppAPI.saveContact(action.contact);
+
+      //Emit Change
+      AppStore.emit(CHANGE_EVENT);
+      break;
+
+      case AppConstants.RECEIVE_CONTACTS:
+      console.log('Receiving Contacts...');
+
+      // Store Save
+      AppStore.setContacts(action.contacts);
 
       //Emit Change
       AppStore.emit(CHANGE_EVENT);
