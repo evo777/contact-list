@@ -16,6 +16,21 @@ var AppActions = {
       actionType: AppConstants.RECEIVE_CONTACTS,
       contacts: contacts
     });
+  },
+
+  //Remove contact that is used in Contact.js
+  removeContact: function(contactId) {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.REMOVE_CONTACT,
+      contactId: contactId
+    });
+  },
+
+  editContact: function(contact) {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.EDIT_CONTACT,
+      contact: contact
+    });
   }
 }
 
