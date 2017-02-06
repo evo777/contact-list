@@ -20,6 +20,25 @@ var AppStore = assign({}, EventEmitter.prototype, {
 
 AppDispatcher.register(function(payload){
   var action = payload.action;
+
+  //After creating SAVE_CONTACT in constants
+  switch(action.actionType){
+    case AppConstants.SAVE_CONTACT:
+      console.log('Saving Contact...');
+
+      // Store Save
+      AppStore.saveContact(action.contact);
+
+      // Save to API
+      //Will look inside the AppAPI.js for a function called saveContact
+      AppAPI.saveContact(action.contact);
+
+      //Emit Change
+      AppStore.emit(CHANGE_EVENT);
+      break;
+  }
+
+  return true;
 });
 
 module.exports = AppStore;
