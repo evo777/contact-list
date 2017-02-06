@@ -31,6 +31,14 @@ var AppActions = {
       actionType: AppConstants.EDIT_CONTACT,
       contact: contact
     });
+  },
+
+  //Add this after creating the handleSubmit function in EditForm.js
+  updateContact: function(contact) {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_CONTACT,
+      contact: contact
+    });
   }
 }
 
