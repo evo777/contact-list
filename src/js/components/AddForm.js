@@ -23,6 +23,20 @@ var AddForm = React.createClass({
         </form>
       </div>
     );
+  },
+
+  handleSubmit: function(e) {
+    e.preventDefault();
+
+    var contact = {
+      //Getting the name from the input box
+      name: this.refs.name.value.trim(),
+      //Has to match with the ref attribute from the form
+      phone: this.refs.phone.value.trim(),
+      email: this.refs.email.value.trim()
+    }
+
+    AppActions.saveContact(contact);
   }
 });
 
