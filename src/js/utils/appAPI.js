@@ -28,5 +28,24 @@ module.exports = {
         AppActions.receiveContacts(contacts);
       });
     });
+  },
+
+  removeContact: function(contactId){
+    this.firebaseRef = new Firebase('https://contactlist-a4387.firebaseio.com/contacts/' + contactId);
+    this.firebaseRef.remove();
+  },
+
+  updateContact: function(contact) {
+    //Get contact by id
+    var id = contact.id;
+    var updatedContact = {
+      name: contact.name,
+      phone: contact.phone,
+      email: contact.email
+    }
+
+    this.firebaseRef = new Firebase('https://contactlist-a4387.firebaseio.com/contacts/' + contact.id + '/contact');
+    //Update database with the new information
+    this.firebaseRef.update(updatedContact);
   }
 }
