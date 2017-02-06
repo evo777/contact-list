@@ -31,6 +31,11 @@ var App = React.createClass({
         <ContactList contacts={this.state.contacts} />
       </div>
     )
+  },
+
+  // Update view state when change is received
+  _onChange: function(){
+    this.setState(getAppState());
   }
 });
 
