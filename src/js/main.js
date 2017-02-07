@@ -5,7 +5,8 @@ var AppAPI = require('./utils/appAPI.js');
 
 AppAPI.getContacts();
 
+
 ReactDOM.render(
-  <App />,
-  document.getElementById('app')
+	<App />,
+	document.getElementById('app')
 );
