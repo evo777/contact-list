@@ -9,7 +9,7 @@ var EditForm = React.createClass({
       //onSubmit is an event handler
       <div className="well">
         <h3>Edit Contact</h3>
-        <form {this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <input type="text" ref="name" onChange={this.handleChange.bind(this, 'name')} value={this.props.contactToEdit.name} className="form-control" placeholder="Please add contact name" />
           </div>
