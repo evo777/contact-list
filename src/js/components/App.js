@@ -2,6 +2,8 @@ var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStore');
 var AddForm = require('./AddForm.js');
+var ContactList = require('./ContactList.js');
+var EditForm = require('./EditForm.js');
 
 function getAppState(){
   return {
@@ -25,9 +27,15 @@ var App = React.createClass({
   },
 
   render: function() {
+    if (this.state.getContactToEdit == '') {
+      var form = <AddForm />
+    } else {
+      var form = <EditForm contactToEdit={this.state.contactToEdit} />
+    }
+
     return (
       <div>
-        <AddForm />
+        {form}
         <ContactList contacts={this.state.contacts} />
       </div>
     )
