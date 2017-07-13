@@ -2,6 +2,9 @@
   "name": "contact-list",
   "version": "1.0.0",
   "description": "An application that holds information",
+  "engines": {
+    "node": "6.11.1"
+  },
   "main": "app.js",
   "scripts": {
     "build": "gulp",
